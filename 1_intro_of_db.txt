@@ -1,0 +1,57 @@
+lesson -1 : SQL
+----------------
+1. SQL - SQL (Structured Query Language) is a standard language used to manipulating data in database.
+
+2. What is DB - Database is a collection of structured information or data that is stored in a computer system.
+
+3. Types of DB - 1. RDBMS 2. NRDBMS
+4. RDBMS
+5. NRDMS
+6. DB Queries
+
+Lesson-2: Table and Keys
+-------------------------
+1. Primary key - is a key which is used to identify a unique record or entity.
+
+2. Foreign key - We need to relation between two table. Foreign key is a key that is the primary key of a table and used for relation to another table.
+
+3. Composit Key - sometimes we need 2 key to identify a record. Like a developer can work in multiple project, here we used 2 primary key to
+identty a record, that is composit key, developer_id, project_id.
+
+Lesson-3: Creating Table
+------------------------
+1. sql datatypes
+2. Table create
+3. describe table
+4. drop table
+5. alter add column
+6. drop column
+
+Lesson-4: Insert data
+------------------------
+1. insert data
+2. insert specific column data
+
+Lesson-5: Constraints
+------------------------
+1. not null
+2. unique
+3. default
+4. auto increment
+
+
+Lesson-6: Update and Delete
+------------------------
+1. Update single row, update multi row
+2. Delete single row, Delete multi row
+
+Lesson-7: Basic Queries
+------------------------
+1. Select
+2. Get specific column by select
+3. Order BY
+4. DESC/ASC
+5. LImit
+6. where
+7. Comparison operator
+8. Where In-

@@ -1,0 +1,48 @@
+Lesson - 14
+--------------
+* Join
+-- Join - is used to combine row from multiple table based on the relation column between them
+-- There are 4 join -
+-- 1. Inner join - return the values that have matching values in both table
+-- 2. Left join - returns the all values from left table and mathced record from the right table
+-- 3. RIGHT JOIN - return the all values from the right table and matched record from the left
+-- 4. Full Join (does not exists in mysql, we can use Left, right and union operator between them) - return the all values from right and left table
+
+-- INNER JOIN
+-- find all branches and their manager name
+SELECT employee.emp_id, employee.first_name, branch.branch_name
+FROM employee
+JOIN branch
+ON branch.mgr_id = employee.emp_id;
+
+-- Left join
+-- find all branches and their manager name
+SELECT employee.emp_id, employee.first_name, branch.branch_name
+FROM employee
+LEFT JOIN branch
+ON employee.emp_id = branch.mgr_id;
+
+-- Right join
+-- find all branches and their manager name
+SELECT employee.emp_id, branch.branch_name, employee.first_name
+FROM employee
+RIGHT JOIN branch
+ON employee.emp_id = branch.mgr_id;
+
+
+-- full join - using union
+SELECT employee.emp_id, branch.branch_name, employee.first_name
+FROM employee
+LEFT JOIN branch
+ON employee.emp_id = branch.mgr_id
+UNION
+SELECT employee.emp_id, branch.branch_name, employee.first_name
+FROM employee
+RIGHT JOIN branch
+ON employee.emp_id = branch.mgr_id
+;
+
+
+
+INSERT INTO branch VALUES(4, 'Buffelo', null, null);
+SELECT * FROM branch;

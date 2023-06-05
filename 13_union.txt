@@ -1,0 +1,30 @@
+Lesson - 13
+--------------
+* UNION - union operator is used to combine the result to multiple SELECT statement.
+
+-- there are 3 rules - 1. Every SELECT statement column number must have the same 2. data types must have same 3. columns order must be same order
+-- the result of column name appeared the first SELECT column name
+
+-- find a list of employee and branch names and client name
+SELECT first_name
+FROM employee
+UNION
+SELECT branch_name
+FROM branch
+UNION
+SELECT client_name
+FROM client;
+
+-- find list of all client and branch supplier name and branch_id
+SELECT client_name, client.branch_id
+FROM client
+UNION
+SELECT supplier_name, branch_supplier.branch_id
+FROM branch_supplier;
+
+-- find the list of all money spent or earned by the company
+SELECT salary AS spent_or_earn
+FROM employee
+UNION
+SELECT total_sales
+FROM works_with;

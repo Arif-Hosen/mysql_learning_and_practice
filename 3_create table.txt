@@ -1,0 +1,27 @@
+Lesson-3: Creating Table
+------------------------
+1. sql datatypes
+2. Table create
+3. describe table
+4. drop table
+5. alter add column
+6. drop column
+
+ex-
+CREATE TABLE student (
+student_id INT PRIMARY KEY,
+name VARCHAR(30),
+major VARCHAR(20)
+);
+
+-- describe table
+DESCRIBE student;
+
+-- drop table
+DROP TABLE student;
+
+-- ADD column
+ALTER TABLE student ADD COLUMN mobile VARCHAR(20);
+
+-- DROP column
+ALTER TABLE student DROP COLUMN mobile;

@@ -1,0 +1,63 @@
+Lesson-17: Triggers
+--------------------
+
+
+-- trigger - is stored program, which is automatically executed when any event/operation occur.
+
+CREATE TABLE trigger_test (
+    message VARCHAR(30)
+);
+
+-- trigger 1
+DELIMITER $$
+CREATE
+    TRIGGER my_trigger1 BEFORE INSERT
+    ON employee
+    FOR EACH ROW BEGIN
+        INSERT INTO trigger_test VALUES('Employee Added!');
+    END$$
+DELIMITER;
+
+-- trigger 2
+DELIMITER $$
+CREATE
+    TRIGGER my_trigger2 BEFORE INSERT
+    ON employee
+    FOR EACH ROW BEGIN
+    -- NEW - refer to the inserted new employee
+        INSERT INTO trigger_test VALUES(NEW.first_name);
+    END$$
+DELIMITER ;
+
+-- TRIGGER 3
+DELIMITER $$
+CREATE
+    TRIGGER my_trigger3 AFTER INSERT
+    ON employee
+    FOR EACH ROW BEGIN
+        IF NEW.sex = 'M' THEN
+            INSERT INTO trigger_test VALUES('ADDED MALE EMPLOYEE');
+        ELSEIF NEW.sex = 'F' THEN
+            INSERT INTO trigger_test VALUES('Added Femaile Employee');
+        ELSE
+            INSERT INTO trigger_test VALUES('Other employee added');
+        END IF;
+    END $$
+DELIMITER ;
+
+
+-- WE CAN DROP THE TRIGGER
+DROP TRIGGER my_trigger;
+
+
+INSERT INTO
+employee VALUES(109, 'Arif', 'Hosen', '1998-05-15', 'M', 55000, 101, 2);
+
+INSERT INTO
+employee VALUES(110, 'RAHIM', 'Hosen', '1998-05-15', 'M', 55000, 101, 2);
+
+INSERT INTO employee
+VALUES(111, 'Pam', 'Beesly', '1988-02-19', 'F', 69000, 106, 3);
+
+
+SELECT * FROM trigger_test;

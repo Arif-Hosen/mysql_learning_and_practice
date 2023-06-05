@@ -1,0 +1,26 @@
+Lesson - 12
+-------------
+* LIKE
+-- % = any number of character, _  = one character
+--  a% - finds any value that start with a , %a - finds any value thats ends with a, %a% - find any value that any value that have a any position
+-- _a% - find any value that have a in second position
+
+-- Find any client who are an LLC
+SELECT *
+FROM client
+WHERE client_name LIKE "%LLC";
+
+-- find any branch suppliers who are in the label business
+SELECT *
+FROM branch_supplier
+WHERE supplier_name LIKE "%Labels%";
+
+-- find any employee born in october
+SELECT *
+FROM employee
+WHERE birth_date LIKE '____-02-%';
+
+-- find any client who are school
+SELECT *
+FROM client
+WHERE client_name LIKE '%school%';

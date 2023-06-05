@@ -1,0 +1,32 @@
+-- foreign key constraints - 
+-- ON DELETE SET NULL - If we delete any record from parent table, the child table foreign will be setted with null.
+-- ON DELETE CASCADE - If we delete any record from parent table, the child table record will be deleled.
+--  * note - If a foreign key does not use as a primary key in the child table, we generally use ON DELETE SET NULL and if a foreign key use as a primary key in the child table, 
+-- ON DELETE CASCADE will be used. 
+
+CREATE TABLE test1 (
+    id INT NOT NULL,
+    name VARCHAR(10),
+    emp_id INT,
+    PRIMARY KEY(id),
+    FOREIGN KEY (emp_id) REFERENCES AS employee(emp_id) ON DELETE SET NULL
+);
+
+CREATE TABLE test2 (
+    id INT NOT NULL,
+    name VARCHAR(10),
+    emp_id INT,
+    PRIMARY KEY(id),
+    FOREIGN KEY (emp_id) REFERENCES AS employee(emp_id) ON DELETE CASCADE;
+)
+
+SELECT *
+FROM employee;
+
+DELETE FROM employee
+WHERE emp_id = 102;
+
+DESCRIBE branch;
+
+SELECT *
+FROM branch;

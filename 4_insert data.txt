@@ -1,0 +1,20 @@
+
+Lesson-3: Insert data
+------------------------
+1. insert data
+2. insert specific column data
+
+ex:
+CREATE TABLE student (
+student_id INT PRIMARY KEY,
+name VARCHAR(30),
+major VARCHAR(20)
+);
+
+SELECT * FROM student;
+DESCRIBE student;
+-- insert data
+INSERT INTO student VALUES(2, 'AsIF HOSEN', 'CSEd');
+
+-- insert specific column data
+INSERT INTO student(student_id, name) VALUES(3, 'AHMED');

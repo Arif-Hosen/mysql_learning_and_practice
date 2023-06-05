@@ -1,0 +1,20 @@
+Lesson-18: ER Diagram Intro
+--------------------
+
+
+-- ER Diagram- Entity Relational Model is a model which i represent logical high level structute by graphica
+	lly of the database. It represent the entity, attibute and relationship among them.
+* ER Diagram componenet - 1. Entity 2. Attributes 3. Relationship
+
+1. Entity - is a object like person, doctor, computer. symbol - rectangle
+2. Attribute - are the properties of Entity. symbol - ellipse
+3. Relationship - is used to describe the relation between entites. symbol - diamond
+
+* There are many types of attributes
+1. key Attribute - the attribute which uniquely identifies each entity. ex - nid attribute
+2. composite Attribute - composed of many other attribute. ex- name attribute consists of firstName
+and lastName attribute.
+3. Multivalued Attribute  - an attribute that cosist more than one value. ex- phoneNo. symbol - double
+ellipse.
+4. Derived Attribute - derived from the other attribute. ex- age attribute deribed from the Date_of_birth
+attribute. symbol - dotted ellipse

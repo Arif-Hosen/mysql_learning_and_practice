@@ -1,0 +1,72 @@
+Lesson - 15
+------------
+* Nested Query-
+
+-- find names all of employees who have sold more than 30000 to a client
+
+SELECT employee.emp_id, employee.first_name, employee.last_name
+FROM employee
+WHERE employee.emp_id IN (
+    SELECT works_with.emp_id
+FROM works_with
+WHERE total_sales > 30000
+);
+
+-- find the all clients who are handle by the branch that Michael Scott manages. Assume you the Michael's ID
+SELECT * 
+FROM client
+WHERE branch_id = (
+    SELECT branch.branch_id 
+    from branch
+    WHERE branch.mgr_id = 102 LIMIT 1
+);
+
+-- Find the names of employees who work with clients handled by the scranton branch
+SELECT employee.first_name
+FROM employee
+WHERE employee.emp_id IN (
+    SELECT DISTINCT works_with.emp_id
+    FROM works_with
+    WHERE works_with.client_id IN (
+        SELECT client.client_id
+        FROM client
+        WHERE client.branch_id = 2
+    )
+);
+
+-- another way
+SELECT employee.first_name
+FROM employee
+WHERE employee.emp_id IN (
+    SELECT works_with.emp_id
+    FROM works_with
+) AND employee.branch_id = 2;
+
+-- Find the names of all clients who have spent more than 100,000 dollars
+SELECT client.client_name
+FROM client
+WHERE client.client_id IN (
+    SELECT client_id
+    FROM (
+        SELECT SUM(works_with.total_sales) AS totals, client_id
+                                    FROM works_with
+                                    GROUP BY client_id
+    ) AS client_sales
+    WHERE client_sales.totals > 100000
+);
+
+-- Find the names of all clients who have spent more than 100,000 dollars
+
+SELECT client.client_name
+FROM client
+WHERE client.client_id IN (
+    SELECT client_id 
+    FROM (
+        SELECT client_id, SUM(works_with.total_sales) as total_spent
+        FROM works_with
+        GROUP BY client_id
+    ) AS client_total_spent
+    WHERE total_spent > 100000
+);
+
+  

@@ -1,0 +1,4 @@
+Lesson-6: Constraints
+------------------------
+1. Update single row, update multi row
+2. Delete single row, Delete multi row

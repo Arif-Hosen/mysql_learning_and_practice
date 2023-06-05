@@ -1,0 +1,81 @@
+-- lesson 10 - more basic--
+-- find all employees
+SELECT * FROM employee;
+
+-- FIND BRANCH
+SELECT *
+FROM branch;
+
+-- find all employees order by salary- DESCENDING ORDER
+SELECT *
+FROM employee
+ORDER BY salary DESC;
+
+-- find all employees WHERE salary is greater than 78000 order by salary-  DESCENDING ORDER
+SELECT *
+FROM employee
+WHERE salary >= 78000
+ORDER BY salary DESC;
+
+-- find all employees order by sex then name
+SELECT *
+FROM employee
+ORDER BY sex, first_name, last_name;
+
+-- find first 5 employees
+SELECT * 
+FROM employee
+LIMIT 5; 
+
+-- find the first and last name of all employees
+SELECT first_name, last_name
+FROM employee;
+
+-- find the forname and surname of all employees
+SELECT first_name AS forname, last_name AS username
+FROM employee;
+
+-- find out all different gender
+SELECT DISTINCT sex
+FROM employee;
+
+-- DISTINCT - different value find from the table
+
+-- Find all male employees
+SELECT * 
+FROM employee
+WHERE sex = 'M';
+
+-- Find all employees at branch 2
+SELECT *
+FROM employee
+WHERE branch_id = 2;
+
+-- Find all employee's id's and names who were born after 1969
+SELECT emp_id, first_name, last_name, birth_date
+FROM employee
+WHERE birth_date >= '1970-01-01';
+
+-- Find all female employees at branch 2
+SELECT *
+FROM employee
+WHERE sex = 'F' AND branch_id = 2;
+
+-- Find all employees who are female & born after 1969 or who make over 80000
+SELECT *
+FROM employee
+WHERE (sex = 'F' AND birth_date >= '1970-01-01') OR salary > 80000;
+
+-- Find all employees born between 1970 and 1975
+SELECT *
+FROM employee
+WHERE birth_date >= '1970-01-01' AND birth_date <= '1975-01-01';
+-- ANOTHER WAY
+SELECT *
+FROM employee
+WHERE birth_date BETWEEN '1970-01-01' AND'1975-01-01';
+
+-- Find all employees named Jim, Michael, Johnny or David
+SELECT *
+FROM employee
+WHERE first_name IN ('Jim', 'Michael', 'Johnny', 'David');

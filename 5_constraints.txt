@@ -1,0 +1,6 @@
+Lesson-5: Constraints
+------------------------
+1. not null
+2. unique
+3. default
+4. auto increment

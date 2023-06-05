@@ -1,0 +1,40 @@
+Solution:
+-----------
+Way -1:
+--------
+SELECT DISTINCT CITY
+FROM STATION
+WHERE (CITY LIKE "a%"
+    OR CITY LIKE "e%"
+    OR CITY LIKE "i%"
+    OR CITY LIKE "o%"
+    OR CITY LIKE "u%")
+    AND (
+    CITY LIKE "%a"
+    OR CITY LIKE "%e"
+    OR CITY LIKE "%i"
+    OR CITY LIKE "%o"
+    OR CITY LIKE "%u"
+    );
+
+Way -2:
+--------
+SELECT DISTINCT CITY
+FROM STATION
+WHERE CITY REGEXP '^[aeiou].*[aeiou]$';
+
+Explaination:
+-------------
+Let's break down the regular expression '^[aeiou].*[aeiou]$' -
+
+ ->  ^: This symbol represents the start of a line or string.
+ -> [aeiou]: This character class matches any single character that is one of the vowels 'a', 'e', 'i', 'o', or 'u'.
+ -> .*: This part matches any sequence of zero or more characters.
+ -> [aeiou]: Similar to the previous character class, it matches any single vowel character.
+ -> $: This symbol represents the end of a line or string.
+
+Putting it all together, the regular expression '^[aeiou].*[aeiou]$' matches strings that meet the following conditions:
+1. The string starts with a vowel (^[aeiou]).
+2. It can have any number of characters in between (.*).
+3. The string ends with a vowel ([aeiou]$).
+Therefore, the regular expression selects values from the CITY column that start and end with a vowel, allowing for any characters in between.

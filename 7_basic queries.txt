@@ -1,0 +1,10 @@
+Lesson-7: Basic Queries
+------------------------
+1. Select
+2. Get specific column by select
+3. Order BY
+4. DESC/ASC
+5. LImit
+6. where
+7. Comparison operator
+8. Where In-
